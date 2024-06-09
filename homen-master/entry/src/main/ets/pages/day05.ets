@@ -1,0 +1,106 @@
+@Entry
+@Component
+struct Day05 {
+  @State message: string = 'Hello World';
+
+  build() {
+    Column() {
+      Text('1')
+        .fontSize(30)
+        .fontWeight(FontWeight.Bold)
+      Row(){
+       Row({space:10}){
+         Image($r('app.media.ic_gallery_search_things'))
+           .width(40)
+           .fillColor(Color.Blue)
+           .colorBlend(Color.Red)
+         Text('收藏')
+           .fontSize(20)
+           .fontWeight(FontWeight.Bold)
+       }
+        Text('>')
+      }
+      .justifyContent(FlexAlign.SpaceBetween)
+      .padding(10)
+      .width('100%')
+      .border({
+        style:{bottom:BorderStyle.Solid},
+        width:{bottom:1},
+        color:Color.Gray
+      })
+      Text('2')
+        .fontSize(30)
+        .fontWeight(FontWeight.Bold)
+      Row(){
+          Column({space:5}){
+            Image($r('app.media.hos01'))
+              .objectFit(ImageFit.Contain)
+              .width('100%')
+            Text('AI大模型训练')
+              .fontSize(20)
+              .fontColor('#464646')
+              .width('100%')
+              .fontWeight(FontWeight.Bold)
+            Row(){
+              Text(){
+                Span('￥240.00/年')
+                  .fontSize(25)
+                  .fontColor('#ee2357')
+                  .width('100%')
+                Span('￥480.00/年')
+                  .fontColor('#d7d7d7')
+                  .fontStyle(FontStyle.Italic)
+                  .decoration({type:TextDecorationType.LineThrough})
+              }
+              Text('5折')
+                .width(40)
+                .height(24)
+                .backgroundColor('#F92947')
+                .fontColor('#fff')
+                .textAlign(TextAlign.Center)
+
+            }
+            .width('100%')
+          }
+          .border({
+            style:BorderStyle.Solid,
+            width:2,
+            color:Color.Orange
+          })
+          .padding(10)
+          .width(300)
+      }
+      .width('100%')
+      Column(){
+        Text('3')
+          .fontSize(30)
+          .fontWeight(FontWeight.Bold)
+        Row(){
+          Button({type:ButtonType.Normal}){
+            Text('<<上一页')
+              .fontSize(14)
+              .fontColor(Color.White)
+          }
+          .width('30%')
+          .height(40)
+          .backgroundColor('#bdc3c7')
+          Text('1/805')
+            .width('30%')
+            .textAlign(TextAlign.Center)
+          Button({type:ButtonType.Normal}){
+            Text('下一页>>')
+              .fontSize(14)
+              .fontColor(Color.White)
+          }
+          .width('30%')
+          .height(40)
+          .backgroundColor('#3d7eff')
+        }
+        .width(250)
+      }
+      .width('100%')
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
