@@ -165,6 +165,57 @@ struct CommodityDetail {
               width:{bottom:1},
               color:'#f0f0f0'
             })
+          Row(){
+            Row(){
+              Text("送至")
+                .fontWeight(FontWeight.Bold)
+                .margin({top:-40})
+              Column({space:5}){
+                Row({space:90}){
+                  Text('北京朝阳区三环到四环之间')
+                    .fontSize(14)
+                    //.width('100%')
+                  Row(){
+                    Text(){
+                      Span('. ')
+                      Span('.')
+                        .fontWeight(900)
+                      Span(' .')
+                    }
+                  }
+
+                }
+                //.justifyContent(FlexAlign.SpaceBetween)
+                Row(){
+                  Text("京东物流")
+                    .fontColor(Color.Red)
+                    .backgroundColor(Color.Pink)
+                    .margin({right:10,top:-10})
+                  Text(){
+                    Span('采购中')
+                      .fontColor(Color.Red)
+                    Span('预计2024-06-11日后有货，现在可以下单')
+                  }
+                  .fontSize(14)
+                  .layoutWeight(1)
+                  .maxLines(2)
+                  .width('80%')
+                }
+                .margin({left:-35})
+
+              }
+            }
+
+          }
+          .justifyContent(FlexAlign.SpaceBetween)
+          .width('100%')
+          .padding(10)
+          .border({
+            style:{bottom:BorderStyle.Solid},
+            color:{bottom:'#f0f0f0'},
+            width:{bottom:1}
+          })
+          
         }
         .margin({top:15})
         .backgroundColor(Color.White)
