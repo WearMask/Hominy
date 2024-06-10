@@ -1,9 +1,14 @@
 import  router  from '@ohos.router';
 import CommodityDetil, { Commodity } from '../viewmodel/CommodityDetil';
-import CommodityList from '../viewmodel/CommodityLisy';
+import CommodityList, { CommodeityLsitData } from '../viewmodel/CommodityLisy';
+import UserEvaluate,{Evaluate} from '../viewmodel/UserEvaluateList'
 
 //let cid:obj  = router.getParams();
 const  params = router.getParams();
+let a: number = 5;
+let b:Array<string> = [];
+let i:number = 0
+
 
 
 router.getParams()
@@ -14,6 +19,7 @@ struct CommodityDetail {
   // @State cid:number = router.getParams()['cid']
   @State cid:number = 1
   @State cmmodity:Array<CommodityDetil> = Commodity
+  @State userEvaluateList:Array<Evaluate> = UserEvaluate
   scroller:Scroller = new Scroller()
   build() {
     Scroll(){
@@ -266,27 +272,39 @@ struct CommodityDetail {
         .borderRadius({topLeft:15,topRight:15})
         Column({space:5}){
           Row({space:10}){
-            Row({space:10}){
-              Row()
-                .width(11)
-                .height(11)
-                .backgroundImage('https://img20.360buyimg.com/img/jfs/t1/168610/10/40795/8056/64eedda4F1aed004e/a8502bb8121e0c68.png')
-                .backgroundImagePosition({x:-80,y:0})
-              Text('59元免基础运费')
-                .fontSize(14)
-                .fontColor(Color.Gray)
+            Row(){
+              Row({space:10}){
+                Row()
+                  .width(11)
+                  .height(11)
+                  .backgroundImage('https://img20.360buyimg.com/img/jfs/t1/168610/10/40795/8056/64eedda4F1aed004e/a8502bb8121e0c68.png')
+                  .backgroundImagePosition({x:-80,y:0})
+                Text('59元免基础运费')
+                  .fontSize(14)
+                  .fontColor(Color.Gray)
+              }
+              Row({space:10}){
+                Row()
+                  .width(11)
+                  .height(11)
+                  .backgroundImage('https://img20.360buyimg.com/img/jfs/t1/168610/10/40795/8056/64eedda4F1aed004e/a8502bb8121e0c68.png')
+                  .backgroundImagePosition({x:-80,y:0})
+                Text('7天无理由退款')
+                  .fontSize(14)
+                  .fontColor(Color.Gray)
+              }
             }
-            Row({space:10}){
-              Row()
-                .width(11)
-                .height(11)
-                .backgroundImage('https://img20.360buyimg.com/img/jfs/t1/168610/10/40795/8056/64eedda4F1aed004e/a8502bb8121e0c68.png')
-                .backgroundImagePosition({x:-80,y:0})
-              Text('7天无理由退款')
-                .fontSize(14)
-                .fontColor(Color.Gray)
+            Row(){
+              Text(){
+                Span('. ')
+                Span('.')
+                  .fontWeight(900)
+                Span(' .')
+              }
             }
+
           }
+          .justifyContent(FlexAlign.SpaceBetween)
           .width('100%')
           Row({space:10}){
             Row({space:10}){
@@ -357,6 +375,79 @@ struct CommodityDetail {
         }
         .width('100%')
         .padding({top:10,bottom:10,left:15,right:15})
+        Column({space:15}){
+          Row(){
+            Row({space:10}){
+              Row(){}
+                .linearGradient({
+                  angle:180,
+                  colors:[[Color.Red,1],[Color.White,0.5],[Color.White,0]]
+                })
+                .width(5)
+                .height(16)
+              Text('评价')
+                .fontWeight(FontWeight.Bold)
+
+              Text('2w+')
+                .fontWeight(FontWeight.Bold)
+            }
+            Row({space:10}){
+              Text('好评率97%')
+                .fontSize(14)
+              Text('>')
+                .fontWeight(FontWeight.Bold)
+                .fontSize(14)
+            }
+          }.justifyContent(FlexAlign.SpaceBetween)
+          .width('100%')
+          Column({space:10}){
+            Row({space:10}){
+              Text('佩戴舒适')
+                .backgroundColor(Color.Pink)
+                .fontWeight(400)
+                .padding(5)
+                .borderRadius(20)
+              Text('十分舒服')
+                .backgroundColor(Color.Pink)
+                .fontWeight(400)
+                .padding(5)
+                .borderRadius(20)
+              Text('做工精细')
+                .backgroundColor(Color.Pink)
+                .fontWeight(400)
+                .padding(5)
+                .borderRadius(20)
+            }
+            .width('100%')
+            Row({space:10}){
+              Text('简单方便')
+                .backgroundColor(Color.Pink)
+                .fontWeight(400)
+                .padding(5)
+                .borderRadius(20)
+              Text('音质清晰')
+                .backgroundColor(Color.Pink)
+                .fontWeight(400)
+                .padding(5)
+                .borderRadius(20)
+              Text('耳朵不疼')
+                .backgroundColor(Color.Pink)
+                .fontWeight(400)
+                .padding(5)
+                .borderRadius(20)
+            }
+            .width('100%')
+          }
+          Column(){
+            ForEach(this.commodityList,(item:c)=>{
+
+            })
+          }
+        }
+        .width('100%')
+        .backgroundColor(Color.White)
+        .borderRadius({topLeft:10,topRight:10})
+        .padding(15)
         Text('cid'+this.cid)
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
