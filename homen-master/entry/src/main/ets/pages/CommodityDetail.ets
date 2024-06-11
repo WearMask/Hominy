@@ -57,13 +57,13 @@ struct CommodityDetail {
               Text('<')
                 .fontColor(Color.White)
             }
-            .onClick(()=>{
-              router.back()
-            })
             .width(40)
             .height(40)
             .backgroundColor(Color.Black)
             .borderRadius(100)
+            .onClick(()=>{
+              router.back()
+            })
             Button(){
               Text('...')
                 .fontColor(Color.White)
